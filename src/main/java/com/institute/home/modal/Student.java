@@ -10,20 +10,14 @@ public class Student {
 	@Id
 	 @GeneratedValue(strategy = GenerationType .AUTO)
 	private int id;
-	private String Firstname;
-	private String Lastname;
-	private String Username;
-	private String Password;
-	private String Phone;
-	private String Email;
-	private String Address;
-	private String College;
-	public String getCollege() {
-		return College;
-	}
-	public void setCollege(String college) {
-		College = college;
-	}
+	private String firstname;
+	private String lastname;
+	private String username;
+	private String password;
+	private String phone;
+	private String email;
+	private String address;
+	private String college;
 	public int getId() {
 		return id;
 	}
@@ -31,46 +25,53 @@ public class Student {
 		this.id = id;
 	}
 	public String getFirstname() {
-		return Firstname;
+		return firstname;
 	}
 	public void setFirstname(String firstname) {
-		Firstname = firstname;
+		this.firstname = firstname;
 	}
 	public String getLastname() {
-		return Lastname;
+		return lastname;
 	}
 	public void setLastname(String lastname) {
-		Lastname = lastname;
+		this.lastname = lastname;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
+	public String getCollege() {
+		return college;
+	}
+	public void setCollege(String college) {
+		this.college = college;
+	}
+	
 
 }

@@ -20,12 +20,12 @@ import com.institute.home.repository.StudentRepository;
 public class StudentController {
 
 	@Autowired
-	private StudentRepository StudentRepo;	
+	private StudentRepository studentRepo;	
 	
 	
 	@PostMapping(value = "/insert")
 	public ResponseEntity<?>insertstudent(@RequestBody final Student s){
-		StudentRepo.save(s);		
+		studentRepo.save(s);		
 	
 		return ResponseEntity
 				.status(HttpStatus.OK)
@@ -35,18 +35,32 @@ public class StudentController {
 	
 	@GetMapping(value = "/getAll")
 	public ResponseEntity<?> getAllStudents(){
-		ArrayList<Student> students = (ArrayList<Student>) StudentRepo.findAll();
+		ArrayList<Student> students = (ArrayList<Student>) studentRepo.findAll();
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(students);
 	}
 	@GetMapping(value = "/delete/{id}")
 	public ResponseEntity<?> deleteStudent(@PathVariable final int id){
-		StudentRepo.deleteById(id);
+		studentRepo.deleteById(id);
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body("Student deleted Successfully!");
 		
 	}
 	
+	@PostMapping(value = "/login")
+	public ResponseEntity<?>loginStudent(@RequestBody final Student stu){
+		Student student = (Student) studentRepo.findByUsernamePassword(stu.getUsername(),stu.getPassword())	;	
+	
+		if(student!=null)
+			return ResponseEntity
+					.status(HttpStatus.OK)
+					.body("login successfully");
+		else
+			return ResponseEntity
+					.status(HttpStatus.BAD_REQUEST)
+					.body("login failed");
+			
+	}
 }

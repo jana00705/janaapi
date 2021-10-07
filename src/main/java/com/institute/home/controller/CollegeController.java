@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.institute.home.modal.College;
 import com.institute.home.repository.CollegeRepository;
 
@@ -75,5 +76,13 @@ public class CollegeController {
 			
 	}
 	
+	@PostMapping(value="/update")
+	public ResponseEntity<?> updateCollege(@RequestBody final College s){
+		collegeRepo.save(s);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body("College saved successfully!");
+		
+	}	
 	
 }
