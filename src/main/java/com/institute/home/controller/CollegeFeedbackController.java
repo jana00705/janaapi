@@ -13,31 +13,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.institute.home.modal.Feedback;
 
-import com.institute.home.repository.FeedbackRepository;
+import com.institute.home.repository.CfeedbackRepository;
 
 @RestController
-@RequestMapping(value="/feedback")
-public class FeedbackController {
+@RequestMapping(value="/collegefeedback")
+public class CollegeFeedbackController {
 
 	@Autowired
-	private FeedbackRepository feedbackRepo;	
+	private CfeedbackRepository cfeedbackRepo;	
 	
 	
 	@PostMapping(value = "/insert")
-	public ResponseEntity<?>insertfeedback(@RequestBody final Feedback s){
-		feedbackRepo.save(s);		
+	public ResponseEntity<?>insertcfeedback(@RequestBody final Feedback f){
+		cfeedbackRepo.save(f);		
 	
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body("Feedback Successfully");
 		
 	}
-	
 	@GetMapping(value = "/getAll")
-	public ResponseEntity<?> getAllStudentsfb(){
-		ArrayList<Feedback> feedbacks = (ArrayList<Feedback>) feedbackRepo.findAll();
+	public ResponseEntity<?> getAllFeedbacks(){
+		ArrayList<Feedback> cfeedbacks = (ArrayList<Feedback>) cfeedbackRepo.findAll();
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(feedbacks);
+				.body(cfeedbacks);
 	}
+	
 }

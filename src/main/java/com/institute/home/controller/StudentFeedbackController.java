@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.institute.home.modal.Studentfb;
+import com.institute.home.modal.StudentFeedback;
 
-import com.institute.home.repository.StudentfbRepository;
+import com.institute.home.repository.SfeedbackRepository;
 
 @RestController
-@RequestMapping(value="/studentfb")
-public class StudentfbController {
+@RequestMapping(value="/studentfeedback")
+public class StudentFeedbackController {
 
 	@Autowired
-	private StudentfbRepository studentfbRepo;	
+	private SfeedbackRepository sfeedbackRepo;	
 	
 	
 	@PostMapping(value = "/insert")
-	public ResponseEntity<?>insertstudentfb(@RequestBody final Studentfb s){
-		studentfbRepo.save(s);		
+	public ResponseEntity<?>insertcfeedback(@RequestBody final StudentFeedback s){
+		sfeedbackRepo.save(s);		
 	
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body("Student Registered Successfully");
+				.body("Feedback Successfully");
 		
 	}
-	
 	@GetMapping(value = "/getAll")
-	public ResponseEntity<?> getAllStudentsfb(){
-		ArrayList<Studentfb> studentsfb = (ArrayList<Studentfb>) studentfbRepo.findAll();
+	public ResponseEntity<?> getAllFeedbacks(){
+		ArrayList<StudentFeedback> feedbacks = (ArrayList<StudentFeedback>) sfeedbackRepo.findAll();
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(studentsfb);
+				.body(feedbacks);
 	}
+	
 }

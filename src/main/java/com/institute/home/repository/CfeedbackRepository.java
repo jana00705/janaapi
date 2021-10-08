@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.institute.home.modal.Feedback;
 
-public interface FeedbackRepository extends CrudRepository<Feedback, Integer> {
+public interface CfeedbackRepository extends CrudRepository<Feedback, Integer> {
 
 }

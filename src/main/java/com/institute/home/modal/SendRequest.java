@@ -6,24 +6,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Studentfb {
+public class SendRequest{
 	@Id
 	 @GeneratedValue(strategy = GenerationType .AUTO)
 	private int id;
+	private String student;
 	private String college;
-	private String studentname;
-	public String getStudentname() {
-		return studentname;
-	}
-	public void setStudentname(String studentname) {
-		this.studentname = studentname;
-	}
-	private String feedback;
+	private String request;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getStudent() {
+		return student;
+	}
+	public void setStudent(String student) {
+		this.student = student;
 	}
 	public String getCollege() {
 		return college;
@@ -31,11 +31,11 @@ public class Studentfb {
 	public void setCollege(String college) {
 		this.college = college;
 	}
-	public String getFeedback() {
-		return feedback;
+	public String getRequest() {
+		return request;
 	}
-	public void setFeedback(String feedback) {
-		this.feedback = feedback;
+	public void setRequest(String request) {
+		this.request = request;
 	}
 	
 	
