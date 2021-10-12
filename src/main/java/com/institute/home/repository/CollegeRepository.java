@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.institute.home.modal.College;
 public interface CollegeRepository extends CrudRepository<College, Integer>   {
 
-	@Query("SELECT clg from College clg where clg.username=?1 and clg.password=?2")
+	@Query("SELECT log from College log where log.username=?1 and log.password=?2")
 	public College findByUsernamePassword(String username,String password);
 	
 //	@Query("SELECT u from User u where u.username=?1")	

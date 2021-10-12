@@ -50,8 +50,8 @@ public class StudentController {
 	}
 	
 	@PostMapping(value = "/login")
-	public ResponseEntity<?>loginStudent(@RequestBody final Student stu){
-		Student student = (Student) studentRepo.findByUsernamePassword(stu.getUsername(),stu.getPassword())	;	
+	public ResponseEntity<?>loginStudent(@RequestBody final Student log){
+		Student student = (Student) studentRepo.findByUsernamePassword(log.getUsername(),log.getPassword())	;	
 	
 		if(student!=null)
 			return ResponseEntity
