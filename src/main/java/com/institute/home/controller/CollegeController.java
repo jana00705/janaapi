@@ -59,21 +59,24 @@ public class CollegeController {
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(college);
-	}	
+	}
 	
 	@PostMapping(value = "/login")
 	public ResponseEntity<?>loginCollege(@RequestBody final College log){
 		College college = (College) collegeRepo.findByUsernamePassword(log.getUsername(),log.getPassword())	;	
-	
-		if(college!=null)
+     int collegeId;
+		
+		if(college!=null) {
+			collegeId = college.getId();
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body("login successfully");
-		else
+					.body(collegeId);
+		}
+		else {
 			return ResponseEntity
 					.status(HttpStatus.BAD_REQUEST)
 					.body("login failed");
-			
+		}
 	}
 	
 	@PostMapping(value="/update")

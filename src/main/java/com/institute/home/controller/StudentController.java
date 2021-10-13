@@ -49,18 +49,26 @@ public class StudentController {
 		
 	}
 	
+	@GetMapping(value = "/get/{id}")
+	public ResponseEntity<?> getStudent(@PathVariable final int id){
+		Student student = studentRepo.findById(id).get();
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(student);
+	}
 	@PostMapping(value = "/login")
 	public ResponseEntity<?>loginStudent(@RequestBody final Student log){
 		Student student = (Student) studentRepo.findByUsernamePassword(log.getUsername(),log.getPassword())	;	
-	
-		if(student!=null)
+		int studentId;
+		if(student!=null) {
+			studentId = student.getId();
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body("login successfully");
-		else
+					.body(studentId);
+		}else {
 			return ResponseEntity
 					.status(HttpStatus.BAD_REQUEST)
 					.body("login failed");
-			
+		}
 	}
 }
